@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.2" client="site" method="upgrade">
+	
+<!-- Author Block -->
+	<name>Vina Awesome Slider for Phoca Gallery</name>
+	<author>VinaGecko.com</author>
+	<creationDate>June 23, 2014</creationDate>
+	<copyright>Copyright (C) 2014 VinaGecko.com. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenseses/gpl-3.0.html GNU/GPL</license>
+	<authorEmail>support@vinagecko.com</authorEmail>
+	<authorUrl>http://VinaGecko.com</authorUrl>
+	<version>1.1</version>
+	
+	<description>
+		<![CDATA[<div style="border: 1px solid red; border-radius: 7px; padding: 10px;">
+		<strong>Vina Awesome Slider for Phoca Gallery</strong> is a free module for <strong>Joomla 3.x</strong> to display images of <strong>Phoca Gallery Component</strong> in responsive slideshow. With 22 Transition Effects (Collage, Photo, Domino, Page, Rotate, Blur, Flip, Blast, Fly, Blinds, Squares, Slices, Basic, Fade, Ken Burns...), Unlimited Images, Fully Responsive...<br><br>
+		<strong>VinaGecko.com</strong> - Premium <a href="http://vinagecko.com/joomla-modules" target="_blank">Joomla Modules</a>, <a href="http://vinagecko.com/joomla-plugins" target="_blank">Joomla Plugins</a>, <a href="http://vinagecko.com/joomla-templates" target="_blank">Joomla Templates</a>.
+		</div>]]>
+	</description>
+
+<!-- Files upload Block -->	
+	<files>
+		<filename module="mod_vina_awesome_phoca">mod_vina_awesome_phoca.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>libs</folder>
+		<folder>assets</folder>
+		<folder>languages</folder>
+		<folder>tmpl</folder>
+	</files>
+
+<!-- Languages Block -->
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_vina_awesome_phoca.ini</language>
+	</languages>
+	
+<!-- Config Block -->
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_vina_awesome_phoca/libs/fields">
+			
+			<!-- Basic Block -->
+			<fieldset name="basic">
+				<field 
+					name="category_id" 
+					type="phocagallerycategory" 
+					section="com_phocagallery" 
+					default="0" 
+					label="MOD_VINA_ASLIDESHOW_PHOCA_CATEGORIES" 
+					description="MOD_VINA_ASLIDESHOW_PHOCA_CATEGORIES_DESc" 
+					multiple="true"  />
+				<field 
+					name="ordering" 
+					type="list" 
+					default="a.ordering ASC" 
+					label="MOD_VINA_ASLIDESHOW_PHOCA_IMAGE_ORDERING" 
+					description="MOD_VINA_ASLIDESHOW_PHOCA_IMAGE_ORDERING_DESC">
+						<option value="a.ordering ASC">Ordering Ascending</option>
+						<option value="a.ordering DESC">Ordering Descending</option>
+						<option value="a.title ASC">Title Ascending</option>
+						<option value="a.title DESC">Title Descending</option>
+						<option value="a.date ASC">Date Ascending</option>
+						<option value="a.title DESC">Date Descending</option>
+						<option value="a.id ASC">ID Ascending</option>
+						<option value="a.id DESC">ID Descending</option>
+						<option value="RAND()">Random</option>
+						<option value="a.hit ASC">Hits Ascending</option>
+						<option value="a.hit DESC">Hits Descending</option>
+				</field>
+				<field
+					name="noItems"
+					type="text"
+					default="10"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_NOITEMS"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_NOITEMS_DESC" />
+				<field type="spacer" name="module" hr="true" />
+				<field
+					name="moduleWidth"
+					type="text"
+					default="600"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_MODULE_WIDTH"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_MODULE_WIDTH_DESC" />
+				<field
+					name="moduleHeight"
+					type="text"
+					default="300"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_MODULE_HEIGHT"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_MODULE_HEIGHT_DESC" />
+				<field
+					name="moduleScaleWidth"
+					type="text"
+					default="600px"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_MODULE_SCALE_WIDTH"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_MODULE_SCALE_WIDTH_DESC" />
+				<field 
+                    name="resizeImage" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_RESIZE_IMAGE" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_RESIZE_IMAGE_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field 
+                    name="resizeType" 
+                    type="list" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="VINA_RESIZE_IMAGE_TYPE" 
+                    description="VINA_RESIZE_IMAGE_TYPE_DESC">
+                        <option value="1">Fill</option>
+                        <option value="2">Inside</option>
+			<option value="3">Outside</option>
+			<option value="6">Fit</option>
+                </field>
+				<field 
+                    name="transitionEffect" 
+                    type="list" 
+                    default="blinds" 
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_TRANSITION_EFFECT" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_TRANSITION_EFFECT_DESC">
+                        <option value="basic">Basic</option>
+                        <option value="basic_linear">Basic linear</option>
+						<option value="blast">Blast</option>
+						<option value="blinds">Blinds</option>
+						<option value="blur">Blur</option>
+						<option value="book">Book</option>
+						<option value="collage">Collage</option>
+						<option value="cube">Cube</option>
+						<option value="domino">Domino</option>
+						<option value="fade">Fade</option>
+						<option value="flip">Flip</option>
+						<option value="fly">Fly</option>
+						<option value="kenburns">Kenburns</option>
+						<option value="overlay">Overlay</option>
+						<option value="page">Page</option>
+						<option value="photo">Photo</option>
+						<option value="rotate">Rotate</option>
+						<option value="seven">Seven</option>
+						<option value="slices">Slices</option>
+						<option value="squares">Squares</option>
+						<option value="stack">Stack</option>
+						<option value="stack_vertical">Stack vertical</option>
+                </field>
+				<field
+					name="duration"
+					type="text"
+					default="2000"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_DURATION"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_DURATION_DESC" />
+				<field
+					name="delay"
+					type="text"
+					default="2000"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_DELAY"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_DELAY_DESC" />
+				<field 
+                    name="autoPlay" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_AUTOPLAY" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_AUTOPLAY_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field 
+                    name="playPause" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_PLAY_PAUSE" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_PLAY_PAUSE_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field 
+                    name="stopOnHover" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_STOP_ON_HOVER" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_STOP_ON_HOVER_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field 
+                    name="loop" 
+                    type="radio" 
+                    default="0" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_LOOP" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_LOOP_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field 
+                    name="bullets" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_BULLETS" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_BULLETS_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field
+					name="smallImageWidth"
+					type="text"
+					default="120"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_SMALL_IMAGE_WIDTH"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_SMALL_IMAGE_WIDTH_DESC" />
+				<field
+					name="smallImageHeight"
+					type="text"
+					default="60"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_SMALL_IMAGE_HEIGHT"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_SMALL_IMAGE_HEIGHT_DESC" />
+				<field 
+                    name="caption" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_CAPTION" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_CAPTION_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field
+					name="captionPosition"
+					type="textarea"
+					default="bottom: 30px; left: 0; border-radius: 0 5px 5px 0;"
+					label="MOD_VINA_ASLIDESHOW_PHOCA_CAPTION_POSITION"
+					description="MOD_VINA_ASLIDESHOW_PHOCA_CAPTION_POSITION_DESC" />
+				<field 
+                    name="captionEffect" 
+                    type="list" 
+                    default="slide" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_CAPTION_EFFECT" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_CAPTION_EFFECT_DESC">
+                        <option value="slide">with Slide</option>
+                        <option value="fade">with Fade</option>
+						<option value="move">with Elastic Move</option>
+                </field>
+				<field 
+                    name="controls" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_ASLIDESHOW_PHOCA_ARROWS" 
+                    description="MOD_VINA_ASLIDESHOW_PHOCA_ARROWS_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+			</fieldset>
+			
+			<!-- Advanced Block -->
+			<fieldset name="advanced">
+				<field 
+                    name="copyRightText" 
+                    type="radio" 
+                    default="0" 
+					class="btn-group btn-group-yesno"
+                    label="VINA_SHOW_COPYRIGHT_TEXT" 
+                    description="VINA_SHOW_COPYRIGHT_TEXT_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+						<option value="1">JGLOBAL_USE_GLOBAL</option>
+						<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+						<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
